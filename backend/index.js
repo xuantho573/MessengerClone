@@ -9,7 +9,6 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 app.use(express.static("/resources"));
-// app.use(morgan('combined'));
 app.use(userRouter);
 
 app.listen(port, () => {
