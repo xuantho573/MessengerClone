@@ -1,36 +1,31 @@
-import mongoose from 'mongoose';
-import * as dotenv from 'dotenv';
+import User from "../models/Users.model.js";
+import connection from "../connection.js";
 
-import User from '../models/Users.model.js';
-
-dotenv.config();
-
-mongoose.connect(process.env.DATABASE_ENTRY);
-
-class UserController {
+class UsersController {
     // [GET]
     get(req, res) {
-        User.findById(req.params.id, (err, docs) => {
-            if (err) { 
-                console.log('Errors detected while getting user\n');
+        User.findOne({ username: req.params.username }, (err, doc) => {
+            if (err) {
+                console.log("Errors detected while getting user\n");
                 console.error(err);
             }
-            if (docs) res.send(docs);
-            else {
-                res.status(404).send('Resource not found')
+            if (doc) {
+                res.json(doc);
+            } else {
+                res.status(404).send("User not found");
             }
-        })
+        });
     }
 
     // [POST]
     post(req, res) {
-        const user = new User({
-            name: req.body.name,
-            avatar: req.body.avatar,
-            conversations: req.body.conversations
-        });
-        user.save();
+        // const user = new User({
+        //     // name: req.body.name,
+        //     // avatar: req.body.avatar,
+        //     // conversations: req.body.conversations
+        // });
+        // user.save();
     }
 }
 
-export default new UserController
+export default new UsersController();
