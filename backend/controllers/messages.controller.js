@@ -5,7 +5,8 @@ class MessagesConttroller {
     get(req, res, next) {
         Message.findById(req.params.id, (err, message) => {
             if (err) {
-                console.log(err);
+                console.log(`Errors detected while getting message\n`);
+                console.error(err);
             }
             if (message) {
                 res.json(message);
@@ -13,6 +14,7 @@ class MessagesConttroller {
                 res.status(404).send("Message not found");
             }
         });
+        next();
     }
 }
 
