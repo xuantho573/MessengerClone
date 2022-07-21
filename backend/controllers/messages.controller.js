@@ -14,7 +14,20 @@ class MessagesConttroller {
                 res.status(404).send("Message not found");
             }
         });
-        next();
+    }
+
+    // [POST]
+    async post(req, res, next) {
+        try {
+            await Message.create({
+                author: req.body.author,
+                content: req.body.content,
+                hiddenForUsers: [],
+            });
+        } catch (err) {
+            console.log(`Error while creating message\n`);
+            console.error(err);
+        }
     }
 }
 
