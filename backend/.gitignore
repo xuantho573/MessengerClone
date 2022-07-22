@@ -1,2 +1,4 @@
 # Packages for the app
 /node_modules
+
+/.env
