@@ -1,4 +1,4 @@
-import express, { application } from "express";
+import express, { urlencoded, json } from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 
@@ -12,8 +12,7 @@ const port = process.env.PORT || 8000;
 
 app.use(cors());
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.post(urlencoded({ extended: false }), json());
 
 app.use(express.static("/resources"));
 app.use("/api", [userRouter, messageRouter]);
