@@ -1,5 +1,5 @@
-import Users from "./Users.model.js";
-import Conversations from "./Conversations.model.js";
-import Messages from "./Messages.model.js";
+import User from "./Users.model.js";
+import Conversation from "./Conversations.model.js";
+import Message from "./Messages.model.js";
 
-export { Users, Conversations, Messages };
+export { User, Conversation, Message };

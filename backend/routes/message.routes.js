@@ -1,11 +1,11 @@
 import express from "express";
 
-import { MessagesController } from "../controllers/index.js";
+import { messagesController } from "../controllers/index.js";
 
 const messageRouter = express.Router();
 
 messageRouter
-    .get("/message/:id", MessagesController.get)
-    .post("/message/post", MessagesController.post);
+    .get("/message/:id", messagesController.get)
+    .post("/message/post", messagesController.post);
 
 export default messageRouter;

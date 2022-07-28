@@ -1,9 +1,9 @@
 import express from "express";
 
-import { ConversationsController } from "../controllers/index.js";
+import { conversationsController } from "../controllers/index.js";
 
 const conversationRouter = express.Router();
 
-conversationRouter.get("/conversation/:id", ConversationsController.get);
+conversationRouter.get("/conversation/:id", conversationsController.get);
 
 export default conversationRouter;
