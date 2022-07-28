@@ -1,4 +1,4 @@
-import Message from "../models/Messages.model.js";
+import { Message } from "../models/index.js";
 
 class MessagesConttroller {
     // [GET]

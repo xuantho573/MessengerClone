@@ -1,5 +1,4 @@
-import User from "../models/Users.model.js";
-import connection from "../connection.js";
+import { User } from "../models/index.js";
 
 class UsersController {
     // [GET]
