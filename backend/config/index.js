@@ -1,4 +1,4 @@
 import configApp from "./app.js";
-import configDatabase from "./database.js";
+import { connectDatabase } from "./database.js";
 
-export { configApp, configDatabase };
+export { configApp, connectDatabase };
