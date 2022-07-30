@@ -1,15 +1,20 @@
 import cors from "cors";
-import express from "express";
 
-import { userRouter, messageRouter } from "../routes/index.js";
+import {
+    userRouter,
+    messageRouter,
+    conversationRouter,
+} from "../routes/index.js";
 
-const configApp = (app) => {
+const configApp = (app, express) => {
     // Config dependencies
     app.use(cors(), express.static("/resources"));
-    app.post(express.urlencoded({ extended: false }), express.json());
+    app.post(express.urlencoded({ extended: true }), express.json());
 
     // Config routers
-    app.use("/api", [userRouter, messageRouter]);
+    app.use("/api/user", userRouter);
+    app.use("/api/message", messageRouter);
+    app.use("/api/conversation", conversationRouter);
 
     app.get("/", (req, res, next) => {
         res.send(`<div style="padding:auto;text-align:center;margin-top:200px">
